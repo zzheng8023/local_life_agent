@@ -85,7 +85,7 @@ local_life_agent/
 ### 安装
 
 ```bash
-git clone https://github.com/你的用户名/local_life_agent.git
+git clone https://github.com/zzheng8023/local_life_agent.git
 cd local_life_agent
 pip install -r requirements.txt
 cp .env.example .env

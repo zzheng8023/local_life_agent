@@ -1,0 +1,51 @@
+# ============================================================
+# local_life_agent — Docker Compose 一键部署
+# ============================================================
+#
+# 快速启动:
+#   docker compose up -d
+#
+# 查看日志:
+#   docker compose logs -f
+#
+# 停止:
+#   docker compose down
+#
+# ============================================================
+
+services:
+  local-life-agent:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: local_life_agent:latest
+    container_name: local_life_agent
+    restart: unless-stopped
+
+    ports:
+      - "7860:7860"
+
+    # 从 .env 文件加载环境变量（敏感信息不入镜像）
+    env_file:
+      - .env
+
+    # 持久化卷：容器销毁后数据/日志不丢失
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+
+    # 健康检查：每 30s 检测 Web UI 是否存活
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:7860"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+
+    # 资源限制（可选调整）
+    deploy:
+      resources:
+        limits:
+          memory: 1G
+        reservations:
+          memory: 256M

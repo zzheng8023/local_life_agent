@@ -1,0 +1,54 @@
+# ============================================================
+# local_life_agent — .gitignore
+# ============================================================
+
+# --- 敏感配置 ---
+.env
+*.env.local
+*.env.*.local
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+dist/
+build/
+*.egg
+.eggs/
+
+# --- 虚拟环境 ---
+venv/
+.venv/
+env/
+
+# --- 系统文件 ---
+.DS_Store
+Thumbs.db
+
+# --- 日志 ---
+*.log
+logs/
+
+# --- 运行时数据 ---
+data/*.db
+data/*.json
+
+# --- IDE ---
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# --- Claude Code (IDE 本地配置，含本地路径与权限) ---
+.claude/
+
+# --- Codex 主题 ---
+*.codex
+
+# --- 测试 ---
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/

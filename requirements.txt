@@ -1,0 +1,29 @@
+# ============================================================
+# local_life_agent 依赖清单 (v3.0)
+# ============================================================
+#
+# 安装方式:
+#   pip install -r requirements.txt
+#
+# SQLite 为 Python 标准库，无需额外安装。
+
+# --- 核心框架 ---
+openai>=1.0.0          # OpenAI 兼容客户端（DeepSeek / Qwen 均兼容 OpenAI API 格式）
+
+# --- LangGraph 多轮工作流 ---
+langgraph>=1.2.0       # 有状态多轮对话图编排
+langsmith>=0.10.0      # 运行追踪与评测
+langchain-core>=1.4.0  # LangChain 核心（消息类型、提示模板）
+
+# --- 数据处理 ---
+pydantic>=2.0.0        # 数据校验与实体定义
+typing-extensions>=4.0 # Annotated 类型标注（实体层使用）
+httpx>=0.25.0          # 异步 HTTP 客户端（高德 API 调用）
+
+# --- 日志与可观测性 ---
+loguru>=0.7.0          # 结构化日志
+
+# --- 工具与实用 ---
+python-dotenv>=1.0.0   # 环境变量加载
+rich>=13.0.0           # 终端美化输出
+gradio>=5.0.0          # Web UI 框架
